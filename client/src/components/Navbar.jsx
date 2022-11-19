@@ -1,18 +1,27 @@
 import React from 'react'
+import { useNavigate, Link } from 'react-router-dom'
 
-const Navbar = () => {
+const Navbar = ({user}) => {
+  const navigate = useNavigate();
   return (
     <div className='navbar'>
-        <span className="logo">GitHub Api App
-          {/* <Link className='link' to="/">GitHub Api App</Link> */}
+        <span className="logo">
+          <Link className='link' to="/">GitHub Api App</Link>
         </span>
-        <ul className="list">
-            <li className="listItem">
-                <img src="" alt="user avatar" className="avatar" />
-            </li>
-            <li className="listItem">David Amebs</li>
+        {user ?
+          (<ul className="list">
+            <Link className='link listItem' to='repos'>Repos</Link>
+            <Link className='list' to='/' style={{color: 'inherit', textDecoration: 'none'}}>
+              <li className="link listItem">
+                  <img src="" alt="user avatar" className="avatar" />
+              </li>
+              <li className="link listItem">David Amebs</li>
+            </Link>
             <li className="listItem" >Logout</li>
-        </ul>
+          </ul>) : (
+            <Link className='link' to="login">Login</Link>
+          )
+        }
     </div>
   )
 }
