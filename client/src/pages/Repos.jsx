@@ -1,32 +1,43 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
 import Pagination from '@mui/material/Pagination';
-import {repos} from '../data';
+import axios from 'axios';
+import ReposComponent from '../components/Repos';
 
 const Repos = () => {
-  const navigate = useNavigate();
-  const [page, setPage] = useState(1);
+  const [repos, setRepos] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [reposPerPage, setReposPerPage] = useState(5)
+  
 
-  const handlePageChange = (e, p) => {
-    setPage(p);
-  }
-  const pageLimit = 3;
-  const dataLength = repos.length;
-  let pageOffset = ((pageLimit * page) - pageLimit + 1);
-  const paginationCount = Math.ceil(dataLength / pageLimit)
   useEffect(() => {
-    
+    const fetchRepos = async () => {
+      setLoading(true);
+      const res = await axios.get('data.json');
+      setRepos(res.data);
+      setLoading(false);
+    };
+
+    fetchRepos();
   }, []);
+
+  // Get Current Page Data
+  const indexOfLastRepo = currentPage * reposPerPage;
+  const indexOfFirstRepo = indexOfLastRepo - reposPerPage;
+  const currentRepos = repos.slice(indexOfFirstRepo, indexOfLastRepo);
+  const paginationCount = Math.ceil(repos.length / reposPerPage);
+
+  // Change Page Content 
+  const handlePageChange = (e, p) => {
+    setCurrentPage(p);
+  }
+
+
   return (
     <div className='repos'>
-      <ul className="content-list">
-        { repos.map(repo => (
-            // <Card key={repo.id} repo = {repo} />
-            <li key={repo.id} className="link content-list-item" onClick={()=>navigate(`${repo.id}`)}>{repo.name}</li>
-        )) }
-      </ul>
+      {/* Passing data to the ReposComponent */}
+      <ReposComponent repos={currentRepos} loading={loading} />
       <div>
-        <h4>Current page: {page} Data Length: {dataLength} PageOffSet: {pageOffset} </h4>
         <Pagination count={paginationCount} color='primary' onChange={handlePageChange}> </Pagination>
       </div>
     </div>
