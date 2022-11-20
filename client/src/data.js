@@ -59,5 +59,65 @@ export const repos = [
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit ad optio magnam veniam nihil, quasi in architecto dignissimos rerum, soluta ipsa nobis eos mollitia eligendi adipisci possimus pariatur dolorem ea?",
     },
+    {
+      id: 6,
+      name: "social-posters",
+      language: "php",
+      followers: [
+        {name: "mollitia eligendi"},
+        {name: "consectetur adipisicing"}
+      ],
+      url: "https://images.pexels.com/photos",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit ad optio magnam veniam nihil, quasi in architecto dignissimos rerum, soluta ipsa nobis eos mollitia eligendi adipisci possimus pariatur dolorem ea?",
+    },
+    {
+      id: 7,
+      name: "mern-gigs",
+      language: "php",
+      followers: [
+        {name: "mollitia eligendi"},
+        {name: "consectetur adipisicing"}
+      ],
+      url: "https://images.pexels.com/photos",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit ad optio magnam veniam nihil, quasi in architecto dignissimos rerum, soluta ipsa nobis eos mollitia eligendi adipisci possimus pariatur dolorem ea?",
+    },
+    {
+      id: 8,
+      name: "php-todo",
+      language: "php",
+      followers: [
+        {name: "mollitia eligendi"},
+        {name: "consectetur adipisicing"}
+      ],
+      url: "https://images.pexels.com/photos",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit ad optio magnam veniam nihil, quasi in architecto dignissimos rerum, soluta ipsa nobis eos mollitia eligendi adipisci possimus pariatur dolorem ea?",
+    },
+    {
+      id: 9,
+      name: "bookmark",
+      language: "php",
+      followers: [
+        {name: "mollitia eligendi"},
+        {name: "consectetur adipisicing"}
+      ],
+      url: "https://images.pexels.com/photos",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit ad optio magnam veniam nihil, quasi in architecto dignissimos rerum, soluta ipsa nobis eos mollitia eligendi adipisci possimus pariatur dolorem ea?",
+    },
+    {
+      id: 10,
+      name: "game-taxi",
+      language: "javascript",
+      followers: [
+        {name: "mollitia eligendi"},
+        {name: "consectetur adipisicing"}
+      ],
+      url: "https://images.pexels.com/photos",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit ad optio magnam veniam nihil, quasi in architecto dignissimos rerum, soluta ipsa nobis eos mollitia eligendi adipisci possimus pariatur dolorem ea?",
+    },
   ];
   
