@@ -66,6 +66,14 @@
   flex-wrap: wrap;
 }
 
+.repos {
+  display: flex;
+  padding: 50px 100px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .wrapper {
   width: 60%;
   height: 75%;
