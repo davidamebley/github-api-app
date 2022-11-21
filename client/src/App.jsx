@@ -9,6 +9,7 @@ import Repo from './pages/Repo';
 
 function App() {
   const [user, setUser] = useState(null);
+  const [token, setToken] = useState('');
 
   useEffect(() => {
     const getUser = () => {
@@ -19,7 +20,7 @@ function App() {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Credentials": true
       },
       }).then((response) =>{  //Our fetch method returns a json response
         if (response.status === 200){
@@ -28,7 +29,8 @@ function App() {
         // If no 200 response/user, throw error
         throw new Error('User authentication failed');
       }).then(resObject => {  //this is the json response object received above
-        setUser(resObject.user);   //get the user property value from the object
+        setToken(resObject.user.authUser.accessToken)
+        setUser(resObject.user.authUser.user);   //get the user property value from the object
       }).catch((err) =>{
         console.log(err);
       });
@@ -39,6 +41,7 @@ function App() {
   }, []);
 
   console.log('Our User...: ',user);
+  console.log('Our Access...Token...: ',token);
 
   return (
     <div className="App">
@@ -50,8 +53,8 @@ function App() {
             <Route path='/login' element={user ? <Navigate to="/" /> : <Login/>} />   
             {/* <Route path='/repos' element={user ? <Repos/> : <Navigate to="/login" />} /> */}
             <Route path='/repos'>
-              <Route path='' element={user ? <Repos/>: <Navigate to="/login"/>} />
-              <Route path=':id' element={user ? <Repo/> : <Navigate to="/login"/>} />
+              <Route path='' element={user ? <Repos accessToken={token} />: <Navigate to="/login"/>} />
+              <Route path=':id' element={user ? <Repo accessToken={token} /> : <Navigate to="/login"/>} />
             </Route>
           </Routes>
         </div>

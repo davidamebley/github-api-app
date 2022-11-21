@@ -1,5 +1,8 @@
+// const useSate = require('useState');
 const router = require('express').Router();
 const passport = require('passport');
+
+const [accessToken] = '';
 
 //login success route
 router.get('/login/success', (req,res) => {
@@ -8,6 +11,7 @@ router.get('/login/success', (req,res) => {
             success: true,
             message: "login successful",
             user: req.user,
+            // accessToken: 
         });
     }
 });
@@ -36,6 +40,7 @@ router.get('/github', (request, response, next) => {
 router.get('/github/callback', passport.authenticate('github', {
     successRedirect: process.env.CLIENT_URL,    //Redirect here when success
     failureRedirect: '/login/failed',       //Redirect here when login failed
+    passReqToCallback: true,
 }));
 
 

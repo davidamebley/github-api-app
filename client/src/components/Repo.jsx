@@ -14,8 +14,8 @@ const RepoComponent = ({ repo, loading }) => {
       <ul className="content-list">
         <li className="card-title  ">Repo: <u>{repo.name}</u></li>
         <li className="content-list-item"><strong>Language: </strong> {repo.language}</li>
-        <li className="content-list-item"><strong>Followers: </strong> {Object.values(repo.followers).map(fwr => <p key={fwr.name} href=""> <u>{fwr.name}</u> &nbsp; </p>)}</li>
-        <li className="content-list-item"><strong>URL: </strong> {repo.url}</li>
+        <li className="content-list-item"><strong>Followers: </strong> {/* Object.values(repo.followers).map(fwr => <p key={fwr.name} href=""> <u>{fwr.name}</u> &nbsp; </p>) */}</li>
+        <li className="content-list-item"><strong>URL: </strong> {repo.html_url}</li>
         <li className="content-list-item"><strong>Description: </strong> {repo.description}</li>
       </ul>
     </div>

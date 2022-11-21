@@ -7,8 +7,18 @@ passport.use(new GithubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRETS,
     callbackURL: "/auth/github/callback",
+    
+    // passReqToCallback: true
+    // passReqToCallback: true
   },function (accessToken, refreshToken, profile, done) {
-      done(null, profile);    // when everything is done, we return no error, but user profile
+      // asynchronous verification, for effect...
+        process.nextTick(function () {
+        // The user's GitHub profile is returned
+        // console.log('Our new req..: ', accessToken);
+        let authUser = {user: profile, accessToken: accessToken}
+        done(null, {authUser});
+        // return done(null, profile);
+      });
     }
     )
 );
