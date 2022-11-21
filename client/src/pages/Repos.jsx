@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Pagination from '@mui/material/Pagination';
 import axios from 'axios';
 import ReposComponent from '../components/Repos';
+const { Octokit } = require("@octokit/core");
 
 const Repos = () => {
   const [repos, setRepos] = useState([]);
@@ -20,6 +21,15 @@ const Repos = () => {
 
     fetchRepos();
   }, []);
+
+  // Testing New Repos Function
+  // Octokit.js
+// https://github.com/octokit/core.js#readme
+const octokit = new Octokit({
+  auth: 'YOUR-TOKEN'
+})
+
+await octokit.request('GET /user/repos{?visibility,affiliation,type,sort,direction,per_page,page,since,before}', {});
 
   // Get Current Page Data
   const indexOfLastRepo = currentPage * reposPerPage;
