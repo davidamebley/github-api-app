@@ -46,7 +46,7 @@ function App() {
         <div>
         <Navbar user={user} />
           <Routes>
-            <Route path='/' element={user ? <Home/> :  <Navigate to="/login"/>} />
+            <Route path='/' element={user ? <Home user={user} /> :  <Navigate to="/login"/>} />
             <Route path='/login' element={user ? <Navigate to="/" /> : <Login/>} />   
             {/* <Route path='/repos' element={user ? <Repos/> : <Navigate to="/login" />} /> */}
             <Route path='/repos'>

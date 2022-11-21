@@ -28,9 +28,10 @@ router.get('/logout', (req, res) => {
 
 // GITHUB AUTH
 router.get('/github', (request, response, next) => {
-    passport.authenticate('github', {scope: ['repo', 'user', /* 'profile' */]})(request, response, next);
+    passport.authenticate('github', {scope: ['repo', 'user', 'profile', 'email']})(request, response, next);
 }); 
 // passport.authenticate('github', {scope: ['profile', 'email']})
+// passport.authenticate('github', {scope: ['repo', 'user', 'profile', 'email']})
 
 router.get('/github/callback', passport.authenticate('github', {
     successRedirect: process.env.CLIENT_URL,    //Redirect here when success
