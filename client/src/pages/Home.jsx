@@ -9,7 +9,6 @@ const Home = () => {
                 <img src="" alt="user avatar" className="content-avatar" />
                 <p>Names</p>
             </li>
-            <li className="content-list-item">Name</li>
             <li className="content-list-item">Email</li>
             <li className="content-list-item">Total Public Repos</li>
             <li className="content-list-item">Total Private Repos</li>
