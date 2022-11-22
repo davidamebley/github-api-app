@@ -1,0 +1,23 @@
+{
+  "name": "github-api-app",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "scripts": {
+    "build": "react-scripts build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "npm start --prefix server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidamebley/github-api-app.git"
+  },
+  "author": "David Amebley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidamebley/github-api-app/issues"
+  },
+  "homepage": "https://github.com/davidamebley/github-api-app#readme"
+}
