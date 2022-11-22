@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/davidamebley/github-api-app/issues"
   },
-  "homepage": "https://github.com/davidamebley/github-api-app#readme"
+  "homepage": "https://github.com/davidamebley/github-api-app#readme",
+  "dependencies": {
+    "react-scripts": "^5.0.1"
+  }
 }
