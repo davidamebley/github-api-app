@@ -1,10 +1,14 @@
 {
   "name": "server",
   "version": "1.0.0",
+  "engines": {
+    "node": "16.15.1"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "build": "react-scripts build"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +21,7 @@
     "express-session": "^1.17.3",
     "nodemon": "^2.0.20",
     "passport": "^0.5.0",
-    "passport-github2": "^0.1.12"
+    "passport-github2": "^0.1.12",
+    "react-scripts": "^5.0.1"
   }
 }
