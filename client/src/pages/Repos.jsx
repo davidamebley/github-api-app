@@ -49,7 +49,7 @@ const Repos = ({ accessToken }) => {
     <div className='repos'>
       {/* Passing data to the ReposComponent */}
       <ReposComponent repos={currentRepos} loading={loading} />
-      <div>
+      <div className='paginate'>
         <Pagination count={paginationCount} color='primary' onChange={handlePageChange}> </Pagination>
       </div>
     </div>
