@@ -5,7 +5,7 @@ import Login from './pages/Login';
 import Repos from './pages/Repos';
 import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import { useEffect, useState } from 'react';
-import Repo from './pages/Repo';
+import RepoFollowers from './pages/RepoFollowers';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -40,9 +40,6 @@ function App() {
     getUser();
   }, []);
 
-  console.log('Our User...: ',user);
-  console.log('Our Access...Token...: ',token);
-
   return (
     <div className="App">
       <BrowserRouter>
@@ -54,8 +51,9 @@ function App() {
             {/* <Route path='/repos' element={user ? <Repos/> : <Navigate to="/login" />} /> */}
             <Route path='/repos'>
               <Route path='' element={user ? <Repos accessToken={token} />: <Navigate to="/login"/>} />
-              <Route path=':id' element={user ? <Repo accessToken={token} /> : <Navigate to="/login"/>} />
             </Route>
+            <Route path='followers' element={<RepoFollowers accessToken={token} /> } />
+            
           </Routes>
         </div>
       </BrowserRouter>

@@ -10,7 +10,7 @@ const Card = ({ user }) => {
                 <img src={user.photos[0].value} alt="user avatar" className="content-avatar" />
                 <div>
                   <p><b> {user.displayName} </b></p> 
-                  <p><b><LocationOnIcon/> {user._json.location}</b></p>
+                  <p><b> <LocationOnIcon/> {user._json.location}</b></p>
                 </div>
             </li>
             <li className="content-list-item"><b>Email: </b>&nbsp; {user._json.email ? user._json.email : <b><i>Your email has not been set</i></b>}</li>

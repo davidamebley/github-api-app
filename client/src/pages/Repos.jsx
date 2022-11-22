@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Pagination from '@mui/material/Pagination';
-import axios from 'axios';
+import Modal from '../components/Modal/Modal';
 import ReposComponent from '../components/Repos';
+import { CSSTransition } from "react-transition-group";
 import { Octokit } from "@octokit/core";
 
 const Repos = ({ accessToken }) => {
@@ -9,25 +10,12 @@ const Repos = ({ accessToken }) => {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [reposPerPage, setReposPerPage] = useState(5);
+  const [showModal, setShowModal] = useState(false);
 
   // Get List of Repos Using AccessToken and Octokit.js package
   const octokit = new Octokit({
     auth: accessToken
   })
-
-  const getUserRepos = async () =>{
-    try {
-      setLoading(true);
-      const response = await octokit.request('GET /user/repos{?visibility,affiliation,type,sort,direction,per_page,page,since,before}', {});
-      
-      console.log('Octokit repos...: ', response.data[0])
-      setRepos(response.data);
-      setLoading(false);
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  
 
   useEffect(() => {
     const fetchRepos = async () => {
@@ -41,16 +29,9 @@ const Repos = ({ accessToken }) => {
       }
     };
 
-    getUserRepos();
     fetchRepos();
   }, []);
 
-  /* const fetchRepos = async () => {
-    setLoading(true);
-    const res = await axios.get('data.json');
-    setRepos(res.data);
-    setLoading(false);
-  }; */
 
   // Get Current Page Data
   const indexOfLastRepo = currentPage * reposPerPage;
@@ -69,11 +50,10 @@ const Repos = ({ accessToken }) => {
       {/* Passing data to the ReposComponent */}
       <ReposComponent repos={currentRepos} loading={loading} />
       <div>
-        <h1> {accessToken} </h1>
         <Pagination count={paginationCount} color='primary' onChange={handlePageChange}> </Pagination>
       </div>
     </div>
-  )
+  );
 }
 
 export default Repos
