@@ -30,6 +30,6 @@ To run the app locally:
 - In your empty <code> .env </code> file, create a <code>GITHUB_CLIENT_ID </code> and <code> GITHUB_CLIENT_SECRETS </code> variables and assign them with the secret codes generated in the step above.
 - Add a <code> SESSION_SECRETS </code> variable in the <code> .env </code> file and assign it an array of any set of characters/secrets.
 - Add a <code> CLIENT URL </code> variable to the <code> .env </code> file and assign it the value <code> http://localhost:3000/</code>
-- Navigate to the Server directory of the project with your terminal and run <code> npm start<code/>
+- Navigate to the Server directory of the project with your terminal and run <code> npm start </code>
 - Create a new terminal and navigate to the Client directory of the project.
-- Run <code> npm start <code/> to start using the app on your browser
+- Run <code> npm start </code> to start using the app on your browser
