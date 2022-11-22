@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# GitHub API App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This application redirects users to authenticate on GitHub using OAuth, and when successful, users are granted further permissions to use the app.
+Authenticated users see the following:
 
-## Available Scripts
+## Basic User Profile
+- Avatar
+- Name
+- Location
+- Email
+- Total Public Repos
+- Total Private Repos
 
-In the project directory, you can run:
+<hr />
+Users also can click each repo displayed to view more details such as:
+- Repo name
+- Repo language
+- Followers
+- Repo URL, and
+- Repo description
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Installation
+To run the app locally:
+- Clone this repository on your local machine and <code> CD </code> into it with your terminal.
+- Make sure you have NodeJS and NPM installed or follow this [link](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/) to complete this step.
+- In the project root directory of your terminal, move into the server directory (<code> CD server </code> ) and run <code> npm install. </code> 
+- In the same server directory, create an empty <code> .env </code> file. You may use <code> touch .env </code> or manually create one.
+- Navigate to the Client directory with your terminal and run <code> npm install </code> to install all dependencies.
+- Login to your GitHub account and create an OAuth App. You may follow this [guide](https://docs.github.com/en/developers/apps/building-oauth-apps)
+- In your empty <code> .env </code> file, create a <code>GITHUB_CLIENT_ID </code> and <code> GITHUB_CLIENT_SECRETS </code> variables and assign them with the secret codes generated in the step above.
+- Add a <code> SESSION_SECRETS </code> variable in the <code> .env </code> file and assign it an array of any set of characters/secrets.
+- Add a <code> CLIENT URL </code> variable to the <code> .env </code> file and assign it the value <code> http://localhost:3000/ </code>
+- Navigate to the Server directory of the project with your terminal and run <code> npm start <code/>
+- Create a new terminal and navigate to the Client directory of the project. Run <code> npm start <code/> to start using the app on your browser
