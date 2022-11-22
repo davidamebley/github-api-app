@@ -61,14 +61,14 @@
 
 .home {
   display: flex;
-  padding: 50px 100px;
+  padding: 0.5em 0.5em;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .repos {
   display: flex;
-  padding: 50px 100px;
+  padding: 0.5em 0.5em;
   justify-content: center;
   align-items: center;
   flex-direction: column;
