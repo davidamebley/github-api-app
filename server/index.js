@@ -7,6 +7,7 @@ const passport = require('passport');
 const authRoute = require('./routes/auth');
 
 const app = express()
+const port = process.env.PORT || 5000
 
 app.use(session({
     secret: process.env.SESSION_SECRETS[0],
@@ -38,6 +39,6 @@ app.use('/auth', authRoute);
 
 
 
-app.listen(process.env.PORT, () => {
+app.listen(port, () => {
     console.log(`Server running on port ${process.env.PORT}`);
 })
